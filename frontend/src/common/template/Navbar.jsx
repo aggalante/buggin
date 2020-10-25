@@ -55,7 +55,7 @@ class Navbar extends Component {
                   <a
                     href='#'
                     onClick={this.props.logout}
-                    className='btn btn-default btn-flat'>
+                    className='btn btn-warning btn-flat'>
                     Logout
                   </a>
                 </div>

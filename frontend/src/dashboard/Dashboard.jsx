@@ -9,7 +9,6 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
-        <ContentHeader title='Dashboard' />
         <Content>
           <Row>
             <ProjectWidget name='Project 1' />

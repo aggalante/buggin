@@ -1,14 +1,14 @@
 import React from "react";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import Routes from "./Routes";
 import Header from "../common/template/Header";
-import SideBar from "../common/template/SideBar";
+import SideBar from "../common/menu/SideBar";
 import Footer from "../common/template/Footer";
 import Messages from "../common/msg/Messages";
 
 export default (props) => (
-  <HashRouter>
+  <BrowserRouter>
     <div className='wrapper'>
       <Header />
       <SideBar />
@@ -16,5 +16,5 @@ export default (props) => (
       <Footer />
       <Messages />
     </div>
-  </HashRouter>
+  </BrowserRouter>
 );

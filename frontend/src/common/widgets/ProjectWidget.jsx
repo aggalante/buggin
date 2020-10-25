@@ -29,14 +29,14 @@ export default (props) => {
       <div className='box-body'>
         <BugWidget
           cols='6 2'
-          color='orange'
+          color='yellow'
           icon='bug'
           value={nrOfNews}
           text='New'
         />
         <BugWidget
           cols='6 2'
-          color='purple'
+          color='teal'
           icon='list'
           value={nrOfTodos}
           text='To do'
@@ -64,7 +64,7 @@ export default (props) => {
         />
         <BugWidget
           cols='6 2'
-          color='brown'
+          color='maroon'
           icon='trash'
           value={nrOfRemoved}
           text='Removed'

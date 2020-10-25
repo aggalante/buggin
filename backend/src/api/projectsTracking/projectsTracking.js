@@ -10,12 +10,13 @@ const bugSchema = new mongoose.Schema({
     uppercase: true,
     enum: ["NEW", "TODO", "INPROGRESS", "BLOCKED", "DONE", "REMOVED"],
   },
+  comments: { type: String },
 });
 
-const projectBugTackingSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String },
   bugs: [bugSchema],
 });
 
-module.exports = restful.model("BugTracking", projectBugTackingSchema);
+module.exports = restful.model("ProjectTracking", projectSchema);

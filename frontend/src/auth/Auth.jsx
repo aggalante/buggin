@@ -1,4 +1,5 @@
 import "./auth.css";
+import logo from "../assets/logo-big.png";
 
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
@@ -32,7 +33,7 @@ class Auth extends Component {
     return (
       <div className='login-box'>
         <div className='login-logo'>
-          <b> BUGGIN </b>
+          <img src={logo} alt='logo' className='logo' />
         </div>
         <div className='login-box-body'>
           <p className='login-box-msg'>Welcome!</p>
@@ -71,7 +72,7 @@ class Auth extends Component {
               <Grid cols='4'>
                 <button
                   type='submit'
-                  className='btn btn-danger btn-block btn-flat'>
+                  className='btn btn-warning btn-block btn-flat'>
                   {loginMode ? "Login" : "Sign up"}
                 </button>
               </Grid>

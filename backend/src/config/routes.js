@@ -8,9 +8,9 @@ module.exports = function (server) {
 
   protectedApi.use(auth);
 
-  // Bug tracking routes
-  const BugTracking = require("../api/bugTracking/bugTrackingService");
-  BugTracking.register(protectedApi, "/bugTracking");
+  // Project tracking routes
+  const ProjectTracking = require("../api/projectsTracking/projectsTrackingService");
+  ProjectTracking.register(protectedApi, "/projectsTracking");
 
   //Open routes
   const openApi = express.Router();

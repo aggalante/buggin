@@ -10,3 +10,7 @@
 .login-box a:hover {
   cursor: pointer;
 }
+.logo {
+  max-width: 90%;
+  max-height: 90%;
+}
