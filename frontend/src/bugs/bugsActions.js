@@ -3,53 +3,26 @@ import { toastr } from "react-redux-toastr";
 import { initialize } from "redux-form";
 
 import { selectTab, showTabs } from "../common/tabs/tabActions";
+import { getList } from "../projects/projectsActions";
 
 const BASE_URL = "http://localhost:3003/api";
 const INITIAL_VALUES = {};
-
-export function getList() {
-  const request = axios.get(`${BASE_URL}/projectsTracking`);
-  return {
-    type: "PROJECTS_FETCHED",
-    payload: request,
-  };
-}
 
 export function init() {
   return [
     showTabs("tabList", "tabCreate"),
     selectTab("tabList"),
     getList(),
-    initialize("ProjectsForm", INITIAL_VALUES),
+    initialize("BugsForm", INITIAL_VALUES),
   ];
 }
 
-export function create(values) {
-  return submit(values, "post");
-}
-
-export function update(values) {
+export function addBug(values) {
   return submit(values, "put");
 }
 
-export function remove(values) {
-  return submit(values, "delete");
-}
-
-export function showUpdate(project) {
-  return [
-    showTabs("tabUpdate"),
-    selectTab("tabUpdate"),
-    initialize("ProjectsForm", project),
-  ];
-}
-
-export function showDelete(project) {
-  return [
-    showTabs("tabDelete"),
-    selectTab("tabDelete"),
-    initialize("ProjectsForm", project),
-  ];
+export function updateBug(values) {
+  return submit(values, "put");
 }
 
 function submit(values, method) {

@@ -1,17 +1,17 @@
 import React from "react";
-import Content from "../template/Content";
 
-import ContentHeader from "../template/ContentHeader";
 import BugWidget from "./BugWidget";
 
 export default (props) => {
-  const name = props.name;
-  const nrOfNews = props.new || 0;
-  const nrOfTodos = props.todo || 0;
-  const nrOfInProgress = props.inProgress || 0;
-  const nrOfBlocked = props.blocked || 0;
-  const nrOfDone = props.done || 0;
-  const nrOfRemoved = props.removed || 0;
+  const name = props.project.name;
+  const summary = props.project.summary;
+
+  const nrOfNews = summary.new || 0;
+  const nrOfTodos = summary.todo || 0;
+  const nrOfInProgress = summary.inProgress || 0;
+  const nrOfBlocked = summary.blocked || 0;
+  const nrOfDone = summary.done || 0;
+  const nrOfRemoved = summary.removed || 0;
 
   return (
     <div className='box box-default'>
