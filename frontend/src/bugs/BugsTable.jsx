@@ -1,14 +1,21 @@
 import React from "react";
+import BugActions from "./BugActions";
 
 export default (props) => {
   function renderRows() {
     const bugs = props.bugs || [];
-    return bugs.map((b) => (
-      <tr key={b._id}>
-        <td>{b.name}</td>
-        <td>{b.description}</td>
-        <td>{b.status}</td>
-        <td></td>
+    return bugs.map((bug) => (
+      <tr key={bug._id}>
+        <td>{bug.name}</td>
+        <td>{bug.description}</td>
+        <td>{bug.status}</td>
+        <td>
+          <BugActions
+            type={props.type}
+            bug={bug}
+            changeState={props.changeState}
+          />
+        </td>
       </tr>
     ));
   }
@@ -36,10 +43,10 @@ export default (props) => {
         <table className='table'>
           <thead>
             <tr>
-              <th style={{ width: "15%" }}>Name</th>
+              <th style={{ width: "250px" }}>Name</th>
               <th>Description</th>
-              <th style={{ width: "10%" }}>Status</th>
-              <th style={{ width: "25%" }}></th>
+              <th style={{ width: "100px" }}>Status</th>
+              <th style={{ width: "360px" }}></th>
             </tr>
           </thead>
           <tbody>{renderRows()}</tbody>

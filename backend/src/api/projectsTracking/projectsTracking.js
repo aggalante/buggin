@@ -10,7 +10,6 @@ const bugSchema = new mongoose.Schema({
     uppercase: true,
     enum: ["NEW", "TODO", "INPROGRESS", "BLOCKED", "DONE", "REMOVED"],
   },
-  comments: { type: String },
 });
 
 const projectSchema = new mongoose.Schema({

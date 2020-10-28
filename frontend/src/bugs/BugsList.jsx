@@ -9,7 +9,7 @@ export default (props) => {
   const inProgressBugs = getBugsByStatus(bugs, "INPROGRESS");
   const blockedBugs = getBugsByStatus(bugs, "BLOCKED");
   const doneBugs = getBugsByStatus(bugs, "DONE");
-  const deletedBugs = getBugsByStatus(bugs, "DELETED");
+  const removedBugs = getBugsByStatus(bugs, "REMOVED");
 
   function getBugsByStatus(bugs, status) {
     return bugs.filter((e) => {
@@ -19,12 +19,48 @@ export default (props) => {
 
   return (
     <div>
-      <BugsTable title='New' icon='bug' bugs={newBugs} />
-      <BugsTable title='To do' icon='list' bugs={todoBugs} />
-      <BugsTable title='In progress' icon='spinner' bugs={inProgressBugs} />
-      <BugsTable title='Blocked' icon='minus-circle' bugs={blockedBugs} />
-      <BugsTable title='Done' icon='check' bugs={doneBugs} />
-      <BugsTable title='Deleted' icon='trash' bugs={deletedBugs} />
+      <BugsTable
+        type='NEW'
+        title='New'
+        icon='bug'
+        bugs={newBugs}
+        changeState={props.changeState}
+      />
+      <BugsTable
+        type='TODO'
+        title='To do'
+        icon='list'
+        bugs={todoBugs}
+        changeState={props.changeState}
+      />
+      <BugsTable
+        type='INPROGRESS'
+        title='In progress'
+        icon='spinner'
+        bugs={inProgressBugs}
+        changeState={props.changeState}
+      />
+      <BugsTable
+        type='BLOCKED'
+        title='Blocked'
+        icon='minus-circle'
+        bugs={blockedBugs}
+        changeState={props.changeState}
+      />
+      <BugsTable
+        type='DONE'
+        title='Done'
+        icon='check'
+        bugs={doneBugs}
+        changeState={props.changeState}
+      />
+      <BugsTable
+        type='REMOVED'
+        title='Removed'
+        icon='trash'
+        bugs={removedBugs}
+        changeState={props.changeState}
+      />
     </div>
   );
 };

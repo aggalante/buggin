@@ -25,7 +25,7 @@ class ProjectsForm extends Component {
             name='description'
             component={LabelAndInput}
             label='Description'
-            cols='12 4'
+            cols='12 8'
             placeholder='Insert project description'
             readOnly={readOnly}
           />

@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 
 import Content from "../common/template/Content";
 import Row from "../common/layout/Row";
-import ProjectWidget from "../common/widgets/ProjectWidget";
 
 import { getSummary } from "./dashboardActions";
 import DashboardContent from "./DashboardContent";

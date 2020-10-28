@@ -18,14 +18,14 @@ class ProjectsList extends Component {
         <td>{p.description}</td>
         <td>
           <button
-            className='btn btn-default'
+            className='btn btn-warning'
             onClick={() => {
               this.props.showUpdate(p);
             }}>
             <i className='fa fa-pencil'></i>
           </button>
           <button
-            className='btn btn-warning'
+            className='btn btn-default'
             onClick={() => {
               this.props.showDelete(p);
             }}>

@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { reduxForm, Field, formValueSelector } from "redux-form";
 
-import { init } from "./bugsActions";
-
 import LabelAndInput from "../common/form/LabelAndInput";
 
-class BugsForm extends Component {
+import { init } from "./bugsActions";
+
+class BugForm extends Component {
   render() {
     const { handleSubmit, readOnly } = this.props;
     return (
@@ -19,23 +19,13 @@ class BugsForm extends Component {
             label='Name'
             cols='12 4'
             placeholder='Insert bug name'
-            readOnly={readOnly}
           />
           <Field
             name='description'
             component={LabelAndInput}
             label='Description'
-            cols='12 4'
+            cols='12 8'
             placeholder='Insert bug description'
-            readOnly={readOnly}
-          />
-          <Field
-            name='comments'
-            component={LabelAndInput}
-            label='Comments'
-            cols='12 4'
-            placeholder='Insert comments'
-            readOnly={readOnly}
           />
         </div>
         <div className='box-footer'>
@@ -54,11 +44,11 @@ class BugsForm extends Component {
   }
 }
 
-BugsForm = reduxForm({
-  form: "BugsForm",
+BugForm = reduxForm({
+  form: "BugForm",
   destroyOnUnmount: false,
-})(BugsForm);
-const selector = formValueSelector("BugsForm");
+})(BugForm);
+const selector = formValueSelector("BugForm");
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => bindActionCreators({ init }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(BugsForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BugForm);

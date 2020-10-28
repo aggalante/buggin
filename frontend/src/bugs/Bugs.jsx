@@ -12,7 +12,7 @@ import TabsContent from "../common/tabs/TabsContent";
 import TabContent from "../common/tabs/TabContent";
 import Content from "../common/template/Content";
 import BugsList from "./BugsList";
-import BugsForm from "./BugsForm";
+import BugForm from "./BugForm";
 
 class Bugs extends Component {
   componentWillMount() {
@@ -22,6 +22,7 @@ class Bugs extends Component {
   constructor(props) {
     super(props);
     this.addBugToProject = this.addBugToProject.bind(this);
+    this.changeBugState = this.changeBugState.bind(this);
   }
 
   getProjectData() {
@@ -44,8 +45,22 @@ class Bugs extends Component {
 
     if (projectData) {
       projectData.bugs.push({ ...bugData, status: "NEW" });
-      console.log(projectData);
       this.props.addBug(projectData);
+    }
+  }
+
+  changeBugState(bugData, newStatus) {
+    const projectData = this.getProjectData();
+
+    if (projectData) {
+      const bugs = projectData.bugs || [];
+      for (var bug in bugs) {
+        if (bugs[bug]._id === bugData._id) {
+          bugs[bug].status = newStatus;
+          break;
+        }
+      }
+      this.props.updateBug(projectData);
     }
   }
 
@@ -60,22 +75,20 @@ class Bugs extends Component {
             <TabsHeader>
               <TabHeader label='Bugs list' icon='bars' target='tabList' />
               <TabHeader label='Add new bug' icon='plus' target='tabCreate' />
-              <TabHeader label='Update bug' icon='pencil' target='tabUpdate' />
             </TabsHeader>
             <TabsContent>
               <TabContent id='tabList'>
-                <BugsList bugs={bugs} />
-              </TabContent>
-              <TabContent id='tabCreate'>
-                <BugsForm
-                  onSubmit={this.addBugToProject.bind(this)}
-                  submitLabel='Add'
+                <BugsList
+                  bugs={bugs}
+                  changeState={(bug, status) =>
+                    this.changeBugState(bug, status)
+                  }
                 />
               </TabContent>
-              <TabContent id='tabUpdate'>
-                <BugsForm
-                  onSubmit={this.props.updateBug}
-                  submitLabel='Update'
+              <TabContent id='tabCreate'>
+                <BugForm
+                  submitLabel='Add'
+                  onSubmit={(bug) => this.addBugToProject(bug)}
                 />
               </TabContent>
             </TabsContent>
